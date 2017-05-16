@@ -9,49 +9,51 @@
 	
 </head>
 <body>
+
+
+
 <div id="container">
      <header>     
         <h1>CrystalCollector!</h1>
      </header>
  <br>
      <section>
-        <p>You will be given a random number at the start of the game.</p>
+        <p>-You will be given a random number at the start of the game.</p>
         <br>
-        <p>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
+        <p>-There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
  <br>
-        <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
+        <p>-You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
         <br>
-        <p>Each time when the game starts, the game will change the values of each crystal.</p>
+        <p>-Each time when the game starts, the game will change the values of each crystal.</p>
      </section>
 <br>
 	<div id="randomNumberAndScoreBox">
-       <div id = "randomNumberGenerater">
-         <span id="randomNumber">46</span>
+       <div id = "randomNumberGenerator">
+         <span id="randomNumber"></span>
        </div>  
 
        <div id = "scoreBox">
-         <span id="win_or_lose"></span>
+         <p><span id="win_or_lose"></span></p>
     	   <p> Wins:
-    	   <span id="win-counter">0</span>
+    	   <span id="win-counter"></span>
     	   </p>
     	   
     	   <p> Losses: 
-    	   <span id="loss-counter">0</span></p>
+    	   <span id="loss-counter"></span></p>
     	   
        </div>
     </div>   
      
 <br>
 <div id="crystals">
-   
-       <img id="cry1" src="assets/images/crystal1.jpg">
+        <img class="crystal-image1" src="assets/images/crystal-ball-spin.gif" alt="crystals">
+        
+       <img class="crystal-image2"  src="assets/images/crystal-ball-spin.gif" alt="crystals">
     
     
-       <img id="cry2" src="assets/images/crystal-ball-spin.gif">
+       <img class="crystal-image3"  src="assets/images/crystal-ball-spin.gif" alt="crystals">
     
-       <img id="cry3" src="assets/images/crystal3.jpg">
-    
-       <img id="cry4" src="assets/images/crystal4.jpg">
+       <img class="crystal-image4"  src="assets/images/crystal-ball-spin.gif" alt="crystals">
     
     
 </div>
@@ -64,11 +66,104 @@
        
 </div>
 
-
-   <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
+   
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
    <script type="text/javascript" src="assets/javascript/game.js"></script>
+    <!--<script type="text/javascript">
 
+    //setting up random number 
+      var targetNumber = Math.floor((Math.random()* 100) +1);
+
+      $("#randomNumber").text(targetNumber);
+
+      var counter = 0;
+    //value numbers for each crystal
+      var numberOptions = [10, 7, 2, 21];
+    
+    //cristal functions
+      $(".crystal-image1").on("click", function() {
+         var increment = numberOptions[0];
+        
+         counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+         $("#win_or_lose").text("You win!");
+         $("#win-counter").text("1");
+         
+        console.log("You win!");
+        
+      }
+
+      else if (counter >= targetNumber) {
+        $("#win_or_lose").text("You Lose!");
+        $("#loss-counter").text("1");
+
+        console.log("You lose!");
+        
+        }
+       
+     });
+
+      $(".crystal-image2").on("click", function() {
+        var increment = numberOptions[1];
+        counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+
+        console.log("You win!");
+
+      }
+
+      else if (counter >= targetNumber) {
+        console.log("You lose!");
+      }
+      });
+
+
+      $(".crystal-image3").on("click", function() {
+        var increment = numberOptions[2];
+        counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+
+        console.log("You win!");
+      }
+
+      else if (counter >= targetNumber) {
+        console.log("You lose!");
+      }
+      });
+
+
+      $(".crystal-image4").on("click", function() {
+         var increment = numberOptions[3];
+        counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+
+        console.log("You win!");
+      }
+
+      else if (counter >= targetNumber) {
+        console.log("You lose!");
+      }
+      });
+
+
+    </script>-->
 
 </body>
 </html>

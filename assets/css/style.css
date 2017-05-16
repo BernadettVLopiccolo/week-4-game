@@ -1,5 +1,5 @@
 body {
-  background-color: #BEB9B5; 
+  background-color: #96C0CE; 
   background-size: cover;
 
 }
@@ -8,18 +8,25 @@ header {
     font-weight: bold;
 	font-size: 60px;
 	color: #525564;
-	background-color: #C25B56;
+	background-color: #BEB9B5;
 	text-align: center;
 	letter-spacing: 2px;
+	padding: 15px;
+	margin-left: 300px;
+	margin-right: 300px;
 	
 }
 
 section {
-    background-color: #C25B56;
+    background-color: #BEB9B5;
     font-size: 20px;
     padding: 10px;
-    width: 80%;
-    margin-left: 100px;
+    width: 50%;
+    margin-left: 360px;
+    height: 250px;
+    text-align: center;
+    padding-top: 50px;
+    
 }
 
 p {
@@ -28,8 +35,14 @@ p {
 }
 
 h2 {
-
+    color: #525564; 
 	font-size: 30px;
+	font-weight: bold;
+}
+
+.crystal-image{
+	width: 300px;
+	height: 300px;
 }
 
 #randomNumberAndScoreBox {
@@ -42,7 +55,7 @@ h2 {
 #scoreBox {
      width: 30%;
      height: 80%;
-     background-color: #4ff2ff;
+     background-color: #44B3C2;
      float: right;
      margin-top: -105px;
      font-size: 25px;
@@ -50,13 +63,17 @@ h2 {
 
 }
 
-#randomNumberGenerater {
+#randomNumberGenerator {
      width: 30%;
      height: 80%;
-     background-color: #4ff2ff;
+     background-color: #44B3C2;
      text-align: center;
      font-size: 25px;
 
+}
+#randomNumber {
+	color: #525564;
+	font-weight: bold;
 }
 
 #scoreBoard {
@@ -74,7 +91,7 @@ h2 {
 	width: 496px;
 	height: 126px;
 	margin: auto;
-	border: 2px solid #f08e2a;
+	border: 2px solid #5DFC0A;
 }
 
 #crystals img {
@@ -96,6 +113,7 @@ h2 {
 	padding-top: 5px;
 	padding-left: 10px;
 	padding-bottom: 10px;
+
 }
 
 #currentScoreCounter {

@@ -1,76 +1,94 @@
-var computerChoice = Math.floor(Math.random()*(120 - 19 + 1) + 19);
-var winCount = 0;
-var loseCount = 0;
-var cry1Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
-var cry2Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
-var cry3Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
-var cry4Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
-var userTotalScore = 0;
+var targetNumber = Math.floor((Math.random()* 100) +1);
+      
+      $("#randomNumber").text(targetNumber);
+
+      var counter = 0;
+    //value numbers for each crystal
+      var numberOptions = [10, 7, 2, 21];
+    
+    //cristal functions
+      $(".crystal-image1").on("click", function() {
+         var increment = numberOptions[0];
+        
+         counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+         $("#win_or_lose").text("You win!");
+         $("#win-counter").text("1");
+         
+        console.log("You win!");
+        
+      }
+
+      else if (counter >= targetNumber) {
+        $("#win_or_lose").text("You Lose!");
+        $("#loss-counter").text("1");
+
+        console.log("You lose!");
+        
+        }
+       
+     });
+
+      $(".crystal-image2").on("click", function() {
+        var increment = numberOptions[1];
+        counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+
+        console.log("You win!");
+
+      }
+
+      else if (counter >= targetNumber) {
+        console.log("You lose!");
+      }
+      });
 
 
-function shuffleCrystalValues(){
-	cry1Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
-	cry2Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
-	cry3Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
-	cry4Choice = Math.floor(Math.random()*(12 - 1 + 1) + 1);
+      $(".crystal-image3").on("click", function() {
+        var increment = numberOptions[2];
+        counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+
+        console.log("You win!");
+      }
+
+      else if (counter >= targetNumber) {
+        console.log("You lose!");
+      }
+      });
+
+
+      $(".crystal-image4").on("click", function() {
+         var increment = numberOptions[3];
+        counter += increment;
+         $("#currentScoreCounter").text(counter);
+        console.log("New score: " + counter);
+    
+
+      if (counter === targetNumber) {
+
+        console.log("You win!");
+      }
+
+      else if (counter >= targetNumber) {
+        console.log("You lose!");
+      }
+      });
+//trying to finish game here 
+function updateGame () {
+  if ( counter === targetNumber) {
+
+  }
 }
-
-
-
-
-function gamePlay(){
-	if(userTotalScore === computerChoice){
-		winCount++;
-		$('#win-counter').text(winCount);
-		$('#win-or-lose').text('You win!');
-		computerChoice = Math.floor(Math.random()*(120 - 19 + 1) + 19);
-		$('#randomNumber').text(computerChoice);
-		userTotalScore = 0;
-		$('#currentScoreCounter').text(userTotalScore);
-		shuffleCrystalValues();
-	} else if(userTotalScore > computerChoice){
-		loseCount++;
-		$('#loss-counter').html(loseCount);
-		$('#win-or-lose').text('You lose!');
-		computerChoice = Math.floor(Math.random()*(120 - 19 + 1) + 19);
-		$('#randomNumber').text(computerChoice);
-		userTotalScore = 0;
-		$('#currentScoreCounter').text(userTotalScore);
-		shuffleCrystalValues();
-	}
-}
-
-
-$('#randomNumber').text(computerChoice);
-
-
-
-$('#cry1').on('click', function(){
-	userTotalScore += crys1Choice;
-	console.log("new userTotalScore" + userTotalScore);
-	$('#currentScoreCounter').text(userTotalScore);
-	gamePlay();
-
-	
-});
-
-
-$('#cry2').on('click', function(){
-	userTotalScore += crys2Choice;
-	$('#currentScoreCounter').text(userTotalScore);
-	gamePlay();
-});
-
-
-$('#cry3').on('click', function(){
-	userTotalScore += crys3Choice;
-	$('#currentScoreCounter').text(userTotalScore);
-	gamePlay();
-});
-
-
-$('#cry4').on('click', function(){
-	userTotalScore += crys4Choice;
-	$('#currentScoreCounter').text(userTotalScore);
-	gamePlay();
-});
