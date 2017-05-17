@@ -1,169 +1,62 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Crystal Game</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	
 </head>
 <body>
-
-
-
 <div id="container">
-     <header>     
-        <h1>CrystalCollector!</h1>
-     </header>
- <br>
-     <section>
-        <p>-You will be given a random number at the start of the game.</p>
-        <br>
-        <p>-There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
- <br>
-        <p>-You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
-        <br>
-        <p>-Each time when the game starts, the game will change the values of each crystal.</p>
-     </section>
-<br>
+  <header>     
+    <h1>CrystalCollector!</h1>
+  </header>
+  <br>
+  <section>
+    <p>-You will be given a random number at the start of the game.</p>
+    <br>
+    <p>-There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
+    <br>
+    <p>-You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
+    <br>
+    <p>-Each time when the game starts, the game will change the values of each crystal.</p>
+  </section>
+  <br>
 	<div id="randomNumberAndScoreBox">
-       <div id = "randomNumberGenerator">
-         <span id="randomNumber"></span>
-       </div>  
+   <div id="randomNumberGenerator">
+     <span id="randomNumber"></span>
+   </div>  
 
-       <div id = "scoreBox">
-         <p><span id="win_or_lose"></span></p>
-    	   <p> Wins:
-    	   <span id="win-counter"></span>
-    	   </p>
-    	   
-    	   <p> Losses: 
-    	   <span id="loss-counter"></span></p>
-    	   
-       </div>
-    </div>   
+   <div id = "scoreBox">
+     <p><span id="win_or_lose"></span></p>
+     <p> Wins:
+     <span id="win-counter"></span>
+     </p>
      
-<br>
-<div id="crystals">
-        <img class="crystal-image1" src="assets/images/crystal-ball-spin.gif" alt="crystals">
-        
-       <img class="crystal-image2"  src="assets/images/crystal-ball-spin.gif" alt="crystals">
-    
-    
-       <img class="crystal-image3"  src="assets/images/crystal-ball-spin.gif" alt="crystals">
-    
-       <img class="crystal-image4"  src="assets/images/crystal-ball-spin.gif" alt="crystals">
-    
-    
-</div>
+     <p> Losses: 
+     <span id="loss-counter"></span></p>
+     
+   </div>
+  </div>   
 
-<div id="currentScore">
-   
-         <h2>Your total score is:</h2>
-         <span id="currentScoreCounter"></span>
-    </div> 
-       
+  <br>
+  <div id="crystals">
+    <img class="crystal-image crystal-image1" data-crystal-id="0" src="assets/images/crystal-ball-spin.gif" alt="crystals">
+    <img class="crystal-image crystal-image2" data-crystal-id="1" src="assets/images/crystal-ball-spin.gif" alt="crystals">
+    <img class="crystal-image crystal-image3" data-crystal-id="2" src="assets/images/crystal-ball-spin.gif" alt="crystals">
+    <img class="crystal-image crystal-image4" data-crystal-id="3" src="assets/images/crystal-ball-spin.gif" alt="crystals">
+  </div>
+
+  <div id="currentScore">
+    <h2>Your total score is:</h2>
+    <span id="currentScoreCounter"></span>
+  </div> 
 </div>
 
    
-   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-
-   <script type="text/javascript" src="assets/javascript/game.js"></script>
-    <!--<script type="text/javascript">
-
-    //setting up random number 
-      var targetNumber = Math.floor((Math.random()* 100) +1);
-
-      $("#randomNumber").text(targetNumber);
-
-      var counter = 0;
-    //value numbers for each crystal
-      var numberOptions = [10, 7, 2, 21];
-    
-    //cristal functions
-      $(".crystal-image1").on("click", function() {
-         var increment = numberOptions[0];
-        
-         counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
-    
-
-      if (counter === targetNumber) {
-         $("#win_or_lose").text("You win!");
-         $("#win-counter").text("1");
-         
-        console.log("You win!");
-        
-      }
-
-      else if (counter >= targetNumber) {
-        $("#win_or_lose").text("You Lose!");
-        $("#loss-counter").text("1");
-
-        console.log("You lose!");
-        
-        }
-       
-     });
-
-      $(".crystal-image2").on("click", function() {
-        var increment = numberOptions[1];
-        counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
-    
-
-      if (counter === targetNumber) {
-
-        console.log("You win!");
-
-      }
-
-      else if (counter >= targetNumber) {
-        console.log("You lose!");
-      }
-      });
-
-
-      $(".crystal-image3").on("click", function() {
-        var increment = numberOptions[2];
-        counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
-    
-
-      if (counter === targetNumber) {
-
-        console.log("You win!");
-      }
-
-      else if (counter >= targetNumber) {
-        console.log("You lose!");
-      }
-      });
-
-
-      $(".crystal-image4").on("click", function() {
-         var increment = numberOptions[3];
-        counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
-    
-
-      if (counter === targetNumber) {
-
-        console.log("You win!");
-      }
-
-      else if (counter >= targetNumber) {
-        console.log("You lose!");
-      }
-      });
-
-
-    </script>-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 </html>

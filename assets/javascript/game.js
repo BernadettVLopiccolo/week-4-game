@@ -1,94 +1,62 @@
-var targetNumber = Math.floor((Math.random()* 100) +1);
-      
-      $("#randomNumber").text(targetNumber);
+$(document).ready(function() {
 
-      var counter = 0;
-    //value numbers for each crystal
-      var numberOptions = [10, 7, 2, 21];
+var targetNumber;
+
+var counter = 0;
+var wins = 0;
+var losses = 0;
+
+//value numbers for each crystal
+var numberOptions = [10, 7, 2, 21];
+
+function reset() {
+
+  counter = 0;
+  targetNumber = Math.floor((Math.random() * 100) + 20);
+  $("#randomNumber").text(targetNumber);
+  
+}
+
+function writeWinLose() {
+  $("#win-counter").text(wins);
+  $("#loss-counter").text(losses);
+}
+
+
+function updateGame(id) {
+  var increment = numberOptions[id];
+  counter += increment;
+  $("#currentScoreCounter").text(counter);
+  console.log("New score: " + counter);
+
+
+  if (counter === targetNumber) {
+    wins++;
+    $("#win_or_lose").text("You win!");
+     
+    console.log("You win!");
+     reset();
+     writeWinLose();
     
-    //cristal functions
-      $(".crystal-image1").on("click", function() {
-         var increment = numberOptions[0];
-        
-         counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
+   
+
+  } else if (counter >= targetNumber) {
+    losses++;
+    $("#win_or_lose").text("You Lose!");
     
-
-      if (counter === targetNumber) {
-         $("#win_or_lose").text("You win!");
-         $("#win-counter").text("1");
-         
-        console.log("You win!");
-        
-      }
-
-      else if (counter >= targetNumber) {
-        $("#win_or_lose").text("You Lose!");
-        $("#loss-counter").text("1");
-
-        console.log("You lose!");
-        
-        }
-       
-     });
-
-      $(".crystal-image2").on("click", function() {
-        var increment = numberOptions[1];
-        counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
-    
-
-      if (counter === targetNumber) {
-
-        console.log("You win!");
-
-      }
-
-      else if (counter >= targetNumber) {
-        console.log("You lose!");
-      }
-      });
-
-
-      $(".crystal-image3").on("click", function() {
-        var increment = numberOptions[2];
-        counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
-    
-
-      if (counter === targetNumber) {
-
-        console.log("You win!");
-      }
-
-      else if (counter >= targetNumber) {
-        console.log("You lose!");
-      }
-      });
-
-
-      $(".crystal-image4").on("click", function() {
-         var increment = numberOptions[3];
-        counter += increment;
-         $("#currentScoreCounter").text(counter);
-        console.log("New score: " + counter);
-    
-
-      if (counter === targetNumber) {
-
-        console.log("You win!");
-      }
-
-      else if (counter >= targetNumber) {
-        console.log("You lose!");
-      }
-      });
-//trying to finish game here 
-function updateGame () {
-  if ( counter === targetNumber) {
-
+     console.log("You lose!");
+    reset();
+    writeWinLose();
+   
   }
 }
+
+//setting up value for each crystal
+$(".crystal-image").on("click", function() {
+  var id = $(this).attr("data-crystal-id");
+  updateGame(parseInt(id));
+});
+
+reset();
+writeWinLose();
+});
