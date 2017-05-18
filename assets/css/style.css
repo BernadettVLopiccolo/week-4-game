@@ -8,7 +8,7 @@ header {
     font-weight: bold;
 	font-size: 60px;
 	color: #525564;
-	background-color: #BEB9B5;
+	background-color: #FEF6EB;
 	text-align: center;
 	letter-spacing: 2px;
 	padding: 15px;
@@ -18,7 +18,7 @@ header {
 }
 
 section {
-    background-color: #BEB9B5;
+    background-color: #FEF6EB;
     font-size: 20px;
     padding: 10px;
     width: 50%;
